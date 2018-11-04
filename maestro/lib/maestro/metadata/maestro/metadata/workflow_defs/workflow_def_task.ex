@@ -9,11 +9,12 @@ defmodule Maestro.Metadata.WorkflowDefs.WorkflowDefTask do
     field :description
     field :optional, :boolean, default: false
     field :input_parameters, {:map, :string}
+    field :start_delay, :integer, default: 0
   end
 
   def changeset(schema, params) do
     schema
-    |> cast(params, [:name, :task_reference_name, :type, :description, :optional, :input_parameters])
+    |> cast(params, [:name, :task_reference_name, :type, :description, :optional, :input_parameters, :start_delay])
     |> validate_required([:name, :task_reference_name, :type])
   end
 
