@@ -12,8 +12,7 @@ defmodule Maestro.Metadata.WorkflowDefs.WorkflowDefRecord do
     timestamps()
   end
 
-  @doc false
-  def changeset(workflow_def = %{"document" => document}) do
+  def changeset(workflow_def) do
     %WorkflowDefRecord{}
     |> cast(workflow_def, [:name, :version])
     |> cast_embed(:document)

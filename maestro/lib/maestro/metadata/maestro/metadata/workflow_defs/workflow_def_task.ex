@@ -16,6 +16,7 @@ defmodule Maestro.Metadata.WorkflowDefs.WorkflowDefTask do
     schema
     |> cast(params, [:name, :task_reference_name, :type, :description, :optional, :input_parameters, :start_delay])
     |> validate_required([:name, :task_reference_name, :type])
+    |> validate_inclusion(:type, ["SIMPLE"])
   end
 
 

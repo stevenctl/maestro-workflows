@@ -28,7 +28,7 @@ defmodule Maestro.Metadata.WorkflowDefs do
 
   def get_workflow_def(name, version) do
     case Repo.get_by(WorkflowDefRecord, name: name, version: version) do
-      %{name: ^name} = wf ->  {:ok, wf.document}
+      %{name: ^name, version: ^version} = wf ->  {:ok, wf.document}
       nil -> {:error, :not_found}
     end
   end
