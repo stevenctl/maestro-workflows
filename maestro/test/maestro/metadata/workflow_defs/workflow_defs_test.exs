@@ -44,10 +44,10 @@ defmodule Maestro.Metadata.WorkflowDefsTest do
     end
 
     test "get_workflow_def/2 returns specified version" do
-      expected_wf = workflow_def_fixture(%{"version" => 1})
+      _expected_wf = workflow_def_fixture(%{"version" => 1})
       workflow_def_fixture(%{"version" => 2})
 
-      assert {:ok, expected_wf} = WorkflowDefs.get_workflow_def("test_wf", 1)
+      assert {:ok, _expected_wf} = WorkflowDefs.get_workflow_def("test_wf", 1)
     end
 
     test "get_workflow_def/2 returns error when speciefied version not found" do
@@ -57,12 +57,12 @@ defmodule Maestro.Metadata.WorkflowDefsTest do
     end
 
     test "create_workflow_def/1 creates workflow_def" do
-      expected =  %WorkflowDef{
+      _expected =  %WorkflowDef{
         name: "test_wf",
         tasks: [%WorkflowDefTask{name: "test_wf_task"}],
         version: 1
       }
-      assert expected = WorkflowDefs.create_workflow_def(@valid_attrs)
+      assert _expected = WorkflowDefs.create_workflow_def(@valid_attrs)
 
     end
 
